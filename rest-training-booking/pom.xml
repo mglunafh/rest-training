@@ -8,4 +8,15 @@
     </parent>
     <artifactId>rest-training-booking</artifactId>
     <packaging>pom</packaging>
+    
+    <dependencies>
+<!--        <dependency>
+            <groupId>com.some.rest-training</groupId>
+            <artifactId>rest-training-billing</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <classifier>classes</classifier>
+        </dependency>-->
+        
+    </dependencies>
+    
 </project>

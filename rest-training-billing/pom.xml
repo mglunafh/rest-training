@@ -6,6 +6,22 @@
         <artifactId>rest-training</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
+    
     <artifactId>rest-training-billing</artifactId>
-    <packaging>pom</packaging>
+    <packaging>war</packaging>
+    
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-war-plugin</artifactId>
+                    <version>3.2.2</version>
+                    <configuration>
+                        <!--WAR plugin is instructed to attach Java code as a 
+                        separate artifact that can be referenced elsewhere. -->                    
+                        <attachClasses>true</attachClasses> 
+                    </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
