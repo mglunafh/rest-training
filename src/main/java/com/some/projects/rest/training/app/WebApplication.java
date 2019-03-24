@@ -8,12 +8,5 @@ public class WebApplication {
   
   public static void main(String[] args) {
     SpringApplication.run(WebApplication.class, args);
-    
-    String some = "qwd" +
-        "nkvd";
-    
-    if (some != null) {
-      
-    }
   }
 }
