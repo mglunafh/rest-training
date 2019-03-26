@@ -15,6 +15,8 @@ public class RoomDto implements Serializable {
   private String name;
   private String description;
 
+  public RoomDto() {}
+
   public RoomDto(Room room) {
     id = room.getId();
     roomCategory = room.getRoomCategory();
