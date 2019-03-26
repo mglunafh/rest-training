@@ -20,7 +20,7 @@ public class JsonConfiguration implements WebMvcConfigurer {
 
     converters.add(new MappingJackson2HttpMessageConverter(
         new Jackson2ObjectMapperBuilder()
-            .propertyNamingStrategy(PropertyNamingStrategy.LOWER_CAMEL_CASE)
+            .propertyNamingStrategy(PropertyNamingStrategy.SNAKE_CASE)
             .serializationInclusion(Include.NON_EMPTY)
             .build()
     ));

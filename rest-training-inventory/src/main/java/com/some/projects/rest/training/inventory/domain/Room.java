@@ -1,5 +1,6 @@
 package com.some.projects.rest.training.inventory.domain;
 
+import com.some.projects.rest.training.inventory.dto.RoomDto;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -35,7 +36,5 @@ public class Room {
 
   @Column(name = "description")
   private String description;
-
-
 
 }

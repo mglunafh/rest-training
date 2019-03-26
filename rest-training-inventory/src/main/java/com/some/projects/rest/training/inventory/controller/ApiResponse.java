@@ -1,7 +1,6 @@
 package com.some.projects.rest.training.inventory.controller;
 
 import com.some.projects.rest.training.inventory.dto.RoomDto;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @Getter

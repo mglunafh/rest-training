@@ -3,9 +3,17 @@ package com.some.projects.rest.training.inventory.dto;
 import com.some.projects.rest.training.inventory.domain.Room;
 import com.some.projects.rest.training.inventory.domain.RoomCategory;
 import java.io.Serializable;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+@AllArgsConstructor
+@NoArgsConstructor
 @Getter
+@Setter
+@Builder
 public class RoomDto implements Serializable {
 
   private static final long serialVersionUID = 2133877623935L;
@@ -15,13 +23,10 @@ public class RoomDto implements Serializable {
   private String name;
   private String description;
 
-  public RoomDto() {}
-
   public RoomDto(Room room) {
     id = room.getId();
     roomCategory = room.getRoomCategory();
     name = room.getName();
     description = room.getDescription();
   }
-
 }

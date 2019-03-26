@@ -1,13 +1,15 @@
 package com.some.projects.rest.training.inventory.controller;
 
 import com.some.projects.rest.training.inventory.domain.Room;
-import com.some.projects.rest.training.inventory.exception.RecordNotFoundException;
-import com.some.projects.rest.training.inventory.service.InventoryService;
 import com.some.projects.rest.training.inventory.domain.RoomCategory;
 import com.some.projects.rest.training.inventory.dto.RoomDto;
+import com.some.projects.rest.training.inventory.exception.RecordNotFoundException;
+import com.some.projects.rest.training.inventory.service.InventoryService;
 import java.util.List;
 import java.util.stream.Collectors;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,6 +24,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class RoomResource {
 
   private final InventoryService inventoryService;
+  private ModelMapper mapper = new ModelMapper();
 
   @Autowired
   public RoomResource(InventoryService inventoryService) {
@@ -37,18 +40,24 @@ public class RoomResource {
   }
 
   @GetMapping("/{roomId}")
-  public RoomDto getRoom(@PathVariable("roomId") Long roomId) {
+  public ApiResponse getRoom(@PathVariable("roomId") Long roomId) {
 
-    Room room = inventoryService.getRoom(roomId);
-
-    return new RoomDto(room);
+    ApiResponse response;
+    try {
+      Room room = inventoryService.getRoom(roomId);
+      RoomDto roomDto = mapper.map(room, RoomDto.class);
+      response = new ApiResponse(Status.OK, roomDto);
+    } catch (RecordNotFoundException ex) {
+      response = new ApiResponse(Status.ERROR, null,
+          new ApiError(999, "no room with ID " + roomId));
+    }
+    return response;
   }
 
   @PostMapping
   public ApiResponse addRoom(@RequestBody RoomDto roomDto) {
     Room newRoom = inventoryService.createRoom(roomDto);
-
-    return new ApiResponse(Status.OK, new RoomDto(newRoom));
+    return new ApiResponse(Status.OK, mapper.map(newRoom, RoomDto.class));
   }
 
   @PutMapping("/{roomId}")
@@ -57,11 +66,22 @@ public class RoomResource {
 
     try {
       Room room = inventoryService.updateRoom(updatedRoom);
-      return new ApiResponse(Status.OK, new RoomDto(room));
+      return new ApiResponse(Status.OK, mapper.map(room, RoomDto.class));
     } catch (RecordNotFoundException e) {
       return new ApiResponse(Status.ERROR, null,
           new ApiError(999, "No room with ID " + roomId));
     }
+  }
 
+  @DeleteMapping("/{roomId}")
+  public ApiResponse deleteRoom(@PathVariable long roomId) {
+    try {
+      Room room = inventoryService.getRoom(roomId);
+      inventoryService.deleteRoom(roomId);
+      return new ApiResponse(Status.OK, null);
+    } catch (RecordNotFoundException ex) {
+      return new ApiResponse(Status.ERROR, null,
+          new ApiError(999, "No Room with ID " + roomId));
+    }
   }
 }

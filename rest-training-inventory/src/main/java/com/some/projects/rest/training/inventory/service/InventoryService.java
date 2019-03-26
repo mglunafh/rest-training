@@ -7,13 +7,15 @@ import java.util.List;
 
 public interface InventoryService {
 
-  public Room getRoom(long roomId);
+  Room getRoom(long roomId);
 
-  public RoomCategory getRoomCategory(long categoryId);
+  RoomCategory getRoomCategory(long categoryId);
 
-  public List<Room> getAllRoomsWithCategory(RoomCategory category);
+  List<Room> getAllRoomsWithCategory(RoomCategory category);
 
-  public Room createRoom(RoomDto roomDto);
+  Room createRoom(RoomDto roomDto);
 
-  public Room updateRoom(RoomDto roomDto);
+  Room updateRoom(RoomDto roomDto);
+
+  void deleteRoom(long roomId);
 }
