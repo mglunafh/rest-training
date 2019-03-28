@@ -1,4 +1,4 @@
-package com.some.projects.rest.training.inventory.controller;
+package com.some.projects.rest.training.common.api;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

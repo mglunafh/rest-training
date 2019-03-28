@@ -1,5 +1,8 @@
 package com.some.projects.rest.training.inventory.controller;
 
+import com.some.projects.rest.training.common.api.ApiError;
+import com.some.projects.rest.training.common.api.ApiResponse;
+import com.some.projects.rest.training.common.api.Status;
 import com.some.projects.rest.training.inventory.domain.Room;
 import com.some.projects.rest.training.inventory.domain.RoomCategory;
 import com.some.projects.rest.training.inventory.dto.RoomDto;
