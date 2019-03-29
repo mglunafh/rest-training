@@ -41,7 +41,6 @@ public class AvailabilityResource {
     
     List<AvailabilityStatus> availableRooms = service.getAvailableRooms(query);
     
-    
     return new ApiResponse(Status.OK, availableRooms);
   }
 }

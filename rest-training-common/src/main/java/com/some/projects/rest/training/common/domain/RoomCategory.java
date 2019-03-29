@@ -1,4 +1,4 @@
-package com.some.projects.rest.training.inventory.domain;
+package com.some.projects.rest.training.common.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

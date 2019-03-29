@@ -1,7 +1,7 @@
-package com.some.projects.rest.training.inventory.dto;
+package com.some.projects.rest.training.common.dto;
 
-import com.some.projects.rest.training.inventory.domain.Room;
-import com.some.projects.rest.training.inventory.domain.RoomCategory;
+import com.some.projects.rest.training.common.domain.Room;
+import com.some.projects.rest.training.common.domain.RoomCategory;
 import java.io.Serializable;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

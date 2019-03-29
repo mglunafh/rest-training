@@ -8,8 +8,8 @@
     </parent>
     
     <artifactId>rest-training-billing</artifactId>
-    <packaging>war</packaging>
-    
+    <packaging>pom</packaging>
+<!--    
     <build>
         <plugins>
             <plugin>
@@ -17,11 +17,11 @@
                     <artifactId>maven-war-plugin</artifactId>
                     <version>3.2.2</version>
                     <configuration>
-                        <!--WAR plugin is instructed to attach Java code as a 
-                        separate artifact that can be referenced elsewhere. -->                    
+                        WAR plugin is instructed to attach Java code as a 
+                        separate artifact that can be referenced elsewhere.                     
                         <attachClasses>true</attachClasses> 
                     </configuration>
             </plugin>
         </plugins>
-    </build>
+    </build>-->
 </project>

@@ -1,4 +1,4 @@
-package com.some.projects.rest.training.inventory.exception;
+package com.some.projects.rest.training.common.exception;
 
 public class RecordNotFoundException extends ApplicationException {
 

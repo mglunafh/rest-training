@@ -1,8 +1,8 @@
 package com.some.projects.rest.training.inventory.service;
 
-import com.some.projects.rest.training.inventory.domain.Room;
-import com.some.projects.rest.training.inventory.domain.RoomCategory;
-import com.some.projects.rest.training.inventory.dto.RoomDto;
+import com.some.projects.rest.training.common.domain.Room;
+import com.some.projects.rest.training.common.domain.RoomCategory;
+import com.some.projects.rest.training.common.dto.RoomDto;
 import java.util.List;
 
 public interface InventoryService {
